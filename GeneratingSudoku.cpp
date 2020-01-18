@@ -10,8 +10,8 @@ using namespace std;
 
 int MovingStepDic[72][9] = { 0 };
 
-
-void MovingStep()
+//inline function to generating movingstepdictionary
+inline void MovingStep()
 {
 	int MovingDic1[2][3] = { { 0,3,6 },{ 0,6,3 } };
 	int MovingDic2[6][3] = { { 1,4,7 },{ 1,7,4 },{ 4,1,7 },{ 4,7,1 },{ 7,4,1 },{ 7,1,4 } };
@@ -34,11 +34,12 @@ void MovingStep()
 	}
 }
 
+//bool function: generating sudoku false or success 
 bool GeneratingSudoku(int n)
 {
 	FILE *fp;
 	errno_t err;
-	err = fopen_s(&fp,"sudoku.txt", "w");
+	err = fopen_s(&fp, "sudoku.txt", "w");
 	if (err != 0) {
 		return false;
 	}

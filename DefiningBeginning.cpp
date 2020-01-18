@@ -21,11 +21,27 @@ int ChageStringToNumber(char s[])
 	return n;
 }
 
+//quick write 
 void WritePutsToFile(FILE* fp, SUDOKU m)
 {
+	int p = 0;
+	char t[164];
+	memset(t, 0, sizeof(t));
 	for (int i = 0; i < 9; i++)
 	{
-		fprintf(fp, "%d %d %d %d %d %d %d %d %d\n", m.map[i][0], m.map[i][1], m.map[i][2], m.map[i][3], m.map[i][4], m.map[i][5], m.map[i][6], m.map[i][7], m.map[i][8]);
+		for (int j = 0; j < 9; j++)
+		{
+			t[p] = m.map[i][j] + '0';
+			p++;
+			if (j != 8)
+			{
+				t[p] = ' ';
+				p++;
+			}
+		}
+		t[p] = '\n';
+		p++;
 	}
-	fprintf(fp, "\n");
+	t[p] = '\n';
+	fputs(t, fp);
 }

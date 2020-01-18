@@ -2,6 +2,7 @@
 #define __GENERATINGSUDOKU__
 #include<iostream>
 using namespace std;
+
 //generating n sudoku
 bool GeneratingSudoku(int n);
 

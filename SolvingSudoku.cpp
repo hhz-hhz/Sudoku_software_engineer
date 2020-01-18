@@ -6,7 +6,8 @@ using namespace std;
 bool sign = false;
 SUDOKU DoSudoku;
 
-bool CheckingForDFS(int n, int key)
+//inline function to judge is or not sudoku 
+inline bool CheckingForDFS(int n, int key)
 {
 	for (int i = 0; i < 9; i++)
 	{
@@ -33,7 +34,8 @@ bool CheckingForDFS(int n, int key)
 	return true;
 }
 
-int SolvingByDFS(int n)
+//inline function to circle try to solve sudoku
+inline int SolvingByDFS(int n)
 {
 	if (n > 80)
 	{
@@ -59,12 +61,13 @@ int SolvingByDFS(int n)
 }
 
 
+//bool function to judge false or success solving
 bool SolvingSudoku(FILE* rfp)
 {
 	FILE *wfp;
 	errno_t err;
-	err = fopen_s(&wfp,"sudoku.txt", "w");
-	if (err!=0)
+	err = fopen_s(&wfp, "sudoku.txt", "w");
+	if (err != 0)
 	{
 		return false;
 	}

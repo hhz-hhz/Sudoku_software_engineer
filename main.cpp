@@ -7,6 +7,7 @@
 
 int main(int argc, char* argv[])
 {
+	//if generating sudoku
 	if (strcmp(argv[1], "-c") == 0)
 	{
 		int n = ChageStringToNumber(argv[2]);
@@ -21,12 +22,12 @@ int main(int argc, char* argv[])
 			else
 				printf("Wrong:sudoku.txt doesn't exist.\n");
 		}
-	}
+	}//if solve sudoku
 	else if (strcmp(argv[1], "-s") == 0) {
 		FILE* fp;
 		errno_t err;
-		err = fopen_s(&fp,argv[2], "r");
-		if (err!=0)
+		err = fopen_s(&fp, argv[2], "r");
+		if (err != 0)
 			printf("Wrong:File open failed.\n");
 		else {
 			if (SolvingSudoku(fp))
@@ -38,7 +39,7 @@ int main(int argc, char* argv[])
 			}
 			fclose(fp);
 		}
-	}
+	}//if not 2 commands
 	else
 	{
 		printf("Wrong:input wrong.\n");

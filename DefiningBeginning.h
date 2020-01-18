@@ -4,6 +4,7 @@
 #define SIZE 9
 #include<iostream>
 using namespace std;
+
 //sudoku structure
 typedef struct {
 	int map[SIZE][SIZE];
@@ -14,8 +15,9 @@ typedef struct {
 int ChageStringToNumber(char s[]);
 
 //write puts to file
-void WritePutsToFile(FILE* fp, SUDOKU m);
+//void WritePutsToFile(FILE* fp, SUDOKU m);
 
+void WritePutsToFile(FILE* fp, SUDOKU m);
 
 #endif // !__DEFININGBEGINNING__
 
