@@ -35,9 +35,9 @@ inline void MovingStep()
 }
 
 //bool function: generating sudoku false or success 
-bool GenerateSudoku::GeneratingSudoku(int n)
+bool GeneratingSudoku(int n)
 {
-	FILE *fp;
+	FILE* fp;
 	errno_t err;
 	err = fopen_s(&fp, "sudoku.txt", "w");
 	if (err != 0) {
@@ -63,8 +63,7 @@ bool GenerateSudoku::GeneratingSudoku(int n)
 				int l = MovingStepDic[j][k];
 				memcpy(&ResultingSudoku.map[k], &JointLine[l], 9 * sizeof(int));
 			}
-			DefineBeginning command;
-			command.WritePutsToFile(fp, ResultingSudoku);
+			WritePutsToFile(fp, ResultingSudoku);
 			num++;
 		}
 	}

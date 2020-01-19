@@ -45,7 +45,6 @@ inline int SolvingByDFS(int n)
 	if (DoSudoku.map[n / 9][n % 9] != 0)
 	{
 		SolvingByDFS(n + 1);
-		return 0;
 	}
 	else {
 		for (int i = 1; i <= 9; i++)
@@ -64,9 +63,9 @@ inline int SolvingByDFS(int n)
 
 
 //bool function to judge false or success solving
-bool SolveSudoku::SolvingSudoku(FILE* rfp)
+bool SolvingSudoku(FILE* rfp)
 {
-	FILE *wfp;
+	FILE* wfp;
 	errno_t err;
 	err = fopen_s(&wfp, "sudoku.txt", "w");
 	if (err != 0)
@@ -75,7 +74,6 @@ bool SolveSudoku::SolvingSudoku(FILE* rfp)
 	}
 
 	char blank;
-	
 	do {
 		for (int i = 0; i < 9; i++)
 		{
@@ -86,11 +84,10 @@ bool SolveSudoku::SolvingSudoku(FILE* rfp)
 		}
 		SolvingByDFS(0);
 		sign = false;
-		DefineBeginning command;
-		command.WritePutsToFile(wfp, DoSudoku);
+		WritePutsToFile(wfp, DoSudoku);
 
 	} while (fscanf_s(rfp, "%c", &blank, sizeof(char)) != EOF);
-	
-	if (wfp != 0)fclose(wfp);
+
+	if(wfp!=0)fclose(wfp);
 	return true;
 }

@@ -7,7 +7,7 @@ using namespace std;
 
 //return number after command '-c' 
 //isdigit(s[i])jugde if number or not
-int DefineBeginning::ChageStringToNumber(char s[])
+int ChageStringToNumber(char s[])
 {
 	int len = strlen(s);
 	int n = 0;
@@ -24,7 +24,7 @@ int DefineBeginning::ChageStringToNumber(char s[])
 }
 
 //quick write 
-void DefineBeginning::WritePutsToFile(FILE* fp, SUDOKU m)
+void WritePutsToFile(FILE* fp, SUDOKU m)
 {
 	int p = 0;
 	char t[164];

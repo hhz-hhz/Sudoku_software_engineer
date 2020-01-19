@@ -10,10 +10,8 @@ typedef struct {
 	int map[SIZE][SIZE];
 }SUDOKU;
 
-class DefineBeginning
-{
-public:
-	DefineBeginning() {};
+
+
 
 	//change string to number
 	//return -1: not number  -2: over request
@@ -24,5 +22,5 @@ public:
 
 	void WritePutsToFile(FILE* fp, SUDOKU m);
 
-};
+
 #endif // !__DEFININGBEGINNING__
