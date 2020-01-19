@@ -24,10 +24,10 @@ inline void MovingStep()
 		{
 			for (int k = 0; k < 2; k++)
 			{
-				memcpy(&step[0], &MovingDic1[k][0], 3 * sizeof(int));
-				memcpy(&step[3], &MovingDic2[j][0], 3 * sizeof(int));
-				memcpy(&step[6], &MovingDic3[i][0], 3 * sizeof(int));
-				memcpy(&MovingStepDic[count], &step[0], 9 * sizeof(int));
+				memcpy_s(&step[0], 3 * sizeof(int), &MovingDic1[k][0], 3 * sizeof(int));
+				memcpy_s(&step[3], 3 * sizeof(int), &MovingDic2[j][0], 3 * sizeof(int));
+				memcpy_s(&step[6], 3 * sizeof(int), &MovingDic3[i][0], 3 * sizeof(int));
+				memcpy_s(&MovingStepDic[count], 9 * sizeof(int), &step[0], 9 * sizeof(int));
 				count++;
 			}
 		}
@@ -35,7 +35,7 @@ inline void MovingStep()
 }
 
 //bool function: generating sudoku false or success 
-bool GeneratingSudoku(int n)
+bool GenerateSudoku::GeneratingSudoku(int n)
 {
 	FILE *fp;
 	errno_t err;
@@ -63,11 +63,12 @@ bool GeneratingSudoku(int n)
 				int l = MovingStepDic[j][k];
 				memcpy(&ResultingSudoku.map[k], &JointLine[l], 9 * sizeof(int));
 			}
-			WritePutsToFile(fp, ResultingSudoku);
+			DefineBeginning command;
+			command.WritePutsToFile(fp, ResultingSudoku);
 			num++;
 		}
 	}
-	fclose(fp);
+	if(fp!=0)fclose(fp);
 	return true;
 }
 

@@ -1,11 +1,13 @@
-#include <stdio.h>
+#include<iostream>
+using namespace std;
 #include <string.h>
 #include <ctype.h>
 #include "DefiningBeginning.h"
 
 
 //return number after command '-c' 
-int ChageStringToNumber(char s[])
+//isdigit(s[i])jugde if number or not
+int DefineBeginning::ChageStringToNumber(char s[])
 {
 	int len = strlen(s);
 	int n = 0;
@@ -22,7 +24,7 @@ int ChageStringToNumber(char s[])
 }
 
 //quick write 
-void WritePutsToFile(FILE* fp, SUDOKU m)
+void DefineBeginning::WritePutsToFile(FILE* fp, SUDOKU m)
 {
 	int p = 0;
 	char t[164];

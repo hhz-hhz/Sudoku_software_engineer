@@ -10,16 +10,19 @@ typedef struct {
 	int map[SIZE][SIZE];
 }SUDOKU;
 
-//change string to number
-//return -1: not number  -2: over request
-int ChageStringToNumber(char s[]);
+class DefineBeginning
+{
+public:
+	DefineBeginning() {};
 
-//write puts to file
-//void WritePutsToFile(FILE* fp, SUDOKU m);
+	//change string to number
+	//return -1: not number  -2: over request
+	int ChageStringToNumber(char s[]);
 
-void WritePutsToFile(FILE* fp, SUDOKU m);
+	//write puts to file
+	//void WritePutsToFile(FILE* fp, SUDOKU m);
 
+	void WritePutsToFile(FILE* fp, SUDOKU m);
+
+};
 #endif // !__DEFININGBEGINNING__
-
-
-
